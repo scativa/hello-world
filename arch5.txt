@@ -1,6 +1,0 @@
-arch2.txt
-arch3.txt
-arch4.txt
-arch5.txt
-archnuevo.txt
-README.md
