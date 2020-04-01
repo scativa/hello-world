@@ -1,2 +1,4 @@
-Para el commit 7)
+Para el commit 8)
+luego del checkout -- arch2.txt
+
 
