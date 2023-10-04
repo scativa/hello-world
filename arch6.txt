@@ -1,4 +1,1 @@
-arch2.txt
-arch3.txt
-arch6.txt
-README.md
+modificado por eze de verdad
