@@ -1,7 +1,6 @@
 # python publisher.py -b localhost -t prueba_mqtt
 
 import paho.mqtt.client as mqtt 
-import logging
 from random import randrange, uniform
 import random
 import string
@@ -33,31 +32,17 @@ if args['cant_msg'] != None:
 client = mqtt.Client(client_id)
 client.connect(mqttBroker) 
 
-#format = "%(asctime)s,%(msecs)03d: %(message)s"
-format = "%(msecs)03d,%(message)s"
-logging.basicConfig(format=format, level=logging.INFO,
-                    datefmt='%H:%M:%S')
-inc_msg = 0
-msgs = [0] * cant_msg
 
 while True:
     # Genera un mensaje incremental
-    # randNumber = uniform(20.0, 21.0)
-    msg = f"{inc_msg:05d}"
+    msg=random.randint(0,100)
+    msg = f"{msg:03d}"
     
     # y lo publica
     client.publish(topic, msg)
-    #logging.info("publisher,{}".format(msg))
-    # msgs[inc_msg] = (int(round(time.time() * 1000)), msg)
 
     print("Publicando: ",topic, msg)
-    # print(f"{msg}) {msgs[inc_msg][0]:03d}") 
 
     # Espera un tiempo
     time.sleep(0.9)
-    inc_msg += 1
-    # if inc_msg == cant_msg:
-    #     break
-  
-# for ms, msg in msgs:
-#     print("{:03d},{}".format(ms, msg)) 
+    

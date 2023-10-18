@@ -10,20 +10,12 @@ import argparse
 
 
 msgs = list()
-inc_msg = 0
 
 def on_message(client, userdata, message):
-    global msgs, inc_msg
-    # print("message received " ,str(message.payload.decode("utf-8")))
-    # print("message topic=",message.topic)
-    # print("message qos=",message.qos)
-    # print("message retain flag=",message.retain)    
     msg = str(message.payload.decode("utf-8"))
-    #logging.info("suscriber,{}".format(msg))
-    # t = int(round(time.time() * 1000))
-    # msgs.append((t, msg))
-    print(f"{message.topic}: {msg}")
-    inc_msg += 1
+    print(f"Recibido: {message.topic}: {msg}")
+    if int(msg) > 70:
+        print("se calienta el agua del mate")
 
 
 ap = argparse.ArgumentParser("MQTT publisher")
@@ -53,11 +45,6 @@ QOS = 2
 if args['qos'] != None:
     cant_msg = args['qos']
 
-# format = "%(asctime)s,%(msecs)03d: %(message)s"
-format = "%(msecs)03d,%(message)s"
-logging.basicConfig(format=format, level=logging.INFO,
-                    datefmt="%H:%M:%S")
-
 client = mqtt.Client(client_id)
 client.connect(mqttBroker) 
 
@@ -72,7 +59,4 @@ while True:
 
 client.loop_stop()
 print("stop listening.")
-
-# for ms, msg in msgs:
-#     print("{:03d},{}".format(ms, msg)) 
 
