@@ -4,7 +4,7 @@ import time
 
 # mqttBroker ="broker.mqttdashboard.com" 
 mqttBroker ="localhost" 
-CliendID = "testDIALcam2"
+CliendID = "cliente"
 Topic = "CameraAnalisis"
 
 client = mqtt.Client(CliendID)

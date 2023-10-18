@@ -20,9 +20,9 @@ def on_message(client, userdata, message):
     # print("message retain flag=",message.retain)    
     msg = str(message.payload.decode("utf-8"))
     #logging.info("suscriber,{}".format(msg))
-    t = int(round(time.time() * 1000))
-    msgs.append((t, msg))
-    print(f"{msg}) {t:03d}")
+    # t = int(round(time.time() * 1000))
+    # msgs.append((t, msg))
+    print(f"{message.topic}: {msg}")
     inc_msg += 1
 
 
@@ -67,7 +67,8 @@ client.on_message=on_message
 client.loop_start()
 print("listening topic {}...".format(topic))
 # client.loop_forever()
-time.sleep(wait_time) # tiempo durante el cual va a estar escuchando
+while True:
+    time.sleep(wait_time) # tiempo durante el cual va a estar escuchando
 
 client.loop_stop()
 print("stop listening.")

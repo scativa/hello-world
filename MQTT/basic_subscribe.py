@@ -6,9 +6,9 @@ def on_message(client, userdata, message):
 
 # mqttBroker ="broker.mqttdashboard.com"
 # mqttBroker ="172.31.69.0"
-mqttBroker ="localhost"
-CliendID = "testDIALplc"
-Topic = "CameraAnalisis"
+mqttBroker ="192.168.26.71"
+CliendID = "cliente"
+Topic = "topico3"
 
 client = mqtt.Client(CliendID)
 client.connect(mqttBroker) 

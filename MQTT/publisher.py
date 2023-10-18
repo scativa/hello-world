@@ -41,20 +41,23 @@ inc_msg = 0
 msgs = [0] * cant_msg
 
 while True:
-    randNumber = uniform(20.0, 21.0)
-    msg = "{:02d}".format(inc_msg)
+    # Genera un mensaje incremental
+    # randNumber = uniform(20.0, 21.0)
+    msg = f"{inc_msg:05d}"
     
+    # y lo publica
     client.publish(topic, msg)
     #logging.info("publisher,{}".format(msg))
-    msgs[inc_msg] = (int(round(time.time() * 1000)), msg)
+    # msgs[inc_msg] = (int(round(time.time() * 1000)), msg)
 
-    print(topic, msg)
+    print("Publicando: ",topic, msg)
     # print(f"{msg}) {msgs[inc_msg][0]:03d}") 
 
+    # Espera un tiempo
     time.sleep(0.9)
     inc_msg += 1
-    if inc_msg == cant_msg:
-        break
+    # if inc_msg == cant_msg:
+    #     break
   
 # for ms, msg in msgs:
 #     print("{:03d},{}".format(ms, msg)) 

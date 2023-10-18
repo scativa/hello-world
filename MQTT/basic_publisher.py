@@ -3,7 +3,7 @@ from random import randrange, uniform
 import time
 
 mqttBroker ="broker.mqttdashboard.com"
-CliendID = "testDIALcam"
+CliendID = "cliente"
 Topic = "CameraAnalisis"
 
 client = mqtt.Client(CliendID)
@@ -15,3 +15,4 @@ while True:
     print("Just published " + str(randNumber) + " to topic " + Topic)
     time.sleep(1)
     
+|
