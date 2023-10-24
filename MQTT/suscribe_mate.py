@@ -11,9 +11,6 @@ import argparse
 
 msgs = list()
 
-def on_message(client, userdata, message):
-    msg = str(message.payload.decode("utf-8"))
-    print(f"Recibido: {message.topic}: {msg}")
 
 ap = argparse.ArgumentParser("MQTT publisher")
 ap.add_argument("-b", "--broker", required=False, help="IP o dirección (default 127.0.0.1)")
@@ -21,7 +18,7 @@ ap.add_argument("-t", "--topic", required=True, help="Topic")
 ap.add_argument("-c", "--client_id", required=False, help="Id del cliente (default random)")
 ap.add_argument("-w", "--wait_time", required=False, help="Tiempo (seg) de espera de mensajes (default 10 segundos)")
 ap.add_argument("-q", "--qos", required=False, help="Calidad de servicio (QOS) {0, 1, 2} (default 2)")
-args = vars(ap.parse_args())
+
 
 mqttBroker ="127.0.0.1" # "broker.hivemq.com" 
 if args['broker'] != None:
@@ -44,6 +41,16 @@ if args['qos'] != None:
 
 client = mqtt.Client(client_id)
 client.connect(mqttBroker) 
+
+while True:
+    # Genera un mensaje incremental
+    msg=random.randint(0,100)
+
+def on_message(client, userdata, message):
+    msg = str(message.payload.decode("utf-8"))
+    print(f"Recibido: {message.topic}: {msg}")
+    
+        
 
 client.subscribe(topic, qos=QOS)
 client.on_message=on_message 

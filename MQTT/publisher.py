@@ -1,7 +1,6 @@
 # python publisher.py -b localhost -t prueba_mqtt
 
 import paho.mqtt.client as mqtt 
-from random import randrange, uniform
 import random
 import string
 import time
