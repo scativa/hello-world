@@ -27,8 +27,8 @@ while True:
 
     # Calcular los valores de la función y trazarlos en la imagen
     
-    x_values = np.append(x_values, x_values[-1] + 1)
-    y_values = np.append(y_values, random.randint(0,101))
+    x_values = np.append(x_values, x_values[-1] + 1)[:500]
+    y_values = np.append(y_values, random.randint(0,101))[-500:]
 
     gy_values = (y_values / 100) * 600  # Escala los valores para que se ajusten a la ventana
     points = np.column_stack((x_values, gy_values)).astype(np.int32)
@@ -38,7 +38,7 @@ while True:
     cv2.imshow(window_name, image)
 
     # Esperar por una tecla y salir si se presiona la tecla 'q'
-    key = cv2.waitKey(300)
+    key = cv2.waitKey(3)
     if key == ord('q'):
         break
 
