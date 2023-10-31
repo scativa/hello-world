@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import random
+import matplotlib.pyplot as plt
 
 # Crear una ventana de OpenCV
 window_name = "Función en vivo"
@@ -23,8 +24,8 @@ y_values = np.arange(0, 1, 1)
 
 while True:
     # Crear una imagen en blanco
-    image = np.zeros((600, 800, 3), dtype=np.uint8)
-
+    image = np.zeros((700, 900, 3), dtype=np.uint8)
+    
     # Calcular los valores de la función y trazarlos en la imagen
     
     x_values = np.append(x_values, x_values[-1] + 1)[:500]
@@ -32,7 +33,7 @@ while True:
 
     gy_values = (y_values / 100) * 600  # Escala los valores para que se ajusten a la ventana
     points = np.column_stack((x_values, gy_values)).astype(np.int32)
-    cv2.polylines(image, [points], isClosed=False, color=(0, 255, 0), thickness=2)
+    cv2.polylines(image, [points], isClosed=False, color=(100, 150, 175), thickness=2)
 
     # Mostrar la imagen en la ventana
     cv2.imshow(window_name, image)
