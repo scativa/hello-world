@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import random
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 # Crear una ventana de OpenCV
 window_name = "Función en vivo"
