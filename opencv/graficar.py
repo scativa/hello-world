@@ -27,7 +27,7 @@ while True:
 
     # Calcular los valores de la función y trazarlos en la imagen
     
-    x_values = np.append(x_values, x_values[-1] + 1)
+    x_values = np.append(x_values, x_values[-1] + 1)*[-100:]*
     y_values = np.append(y_values, random.randint(0,101))
 
     gy_values = (y_values / 100) * 600  # Escala los valores para que se ajusten a la ventana
@@ -44,3 +44,5 @@ while True:
 
 # Cerrar la ventana y liberar recursos
 cv2.destroyWindow(window_name)
+
+
