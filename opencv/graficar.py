@@ -1,6 +1,15 @@
 import cv2
 import numpy as np
 import random
+import pygame
+import simpleaudio as sa
+
+# Definir el umbral para activar la alerta de sonido
+umbral = 0.9
+
+# Cargar el archivo de sonido
+wave_obj = sa.WaveObject.from_wave_file("alert.wav")  
+
 
 # Crear una ventana de OpenCV
 window_name = "Función en vivo"
@@ -21,18 +30,24 @@ cv2.resizeWindow(window_name, 800, 600)
 x_values = np.arange(0, 1, 1)
 y_values = np.arange(0, 1, 1)
 
+# Función para verificar el umbral y reproducir el sonido
+def check_umbral(x, y, umbral):
+    if any(y > umbral):
+        play_obj = wave_obj.play()
+        play_obj.wait_done()
+
 while True:
     # Crear una imagen en blanco
     image = np.zeros((600, 800, 3), dtype=np.uint8)
 
     # Calcular los valores de la función y trazarlos en la imagen
     
-    x_values = np.append(x_values, x_values[-1] + 1)*[-100:]*
+    x_values = np.append(x_values, x_values[-1] + 1)*[(-100:)]
     y_values = np.append(y_values, random.randint(0,101))
 
     gy_values = (y_values / 100) * 600  # Escala los valores para que se ajusten a la ventana
     points = np.column_stack((x_values, gy_values)).astype(np.int32)
-    cv2.polylines(image, [points], isClosed=False, color=(0, 255, 0), thickness=2)
+    cv2.polylines(image, [points], isClosed=False, color=(0, 255, 50), thickness=2)
 
     # Mostrar la imagen en la ventana
     cv2.imshow(window_name, image)
@@ -41,6 +56,7 @@ while True:
     key = cv2.waitKey(300)
     if key == ord('q'):
         break
+
 
 # Cerrar la ventana y liberar recursos
 cv2.destroyWindow(window_name)
