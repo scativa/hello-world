@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import random
+<<<<<<< HEAD
 import pygame
 # import simpleaudio as sa
 
@@ -14,6 +15,9 @@ pygame.init()
 alert_sound = pygame.mixer.Sound("./opencv/sonido_err.wav")  # Reemplaza "alert.wav" con el nombre de tu archivo de sonido
 alert_ok = pygame.mixer.Sound("./opencv/sonido_ok.wav")  # Reemplaza "alert.wav" con el nombre de tu archivo de sonido
 
+=======
+# import matplotlib.pyplot as plt
+>>>>>>> 7025130339cacaaf9f89d8dcfb429de475fc776a
 
 # Crear una ventana de OpenCV
 window_name = "Función en vivo"
@@ -45,8 +49,8 @@ def check_umbral(x, umbral):
 
 while True:
     # Crear una imagen en blanco
-    image = np.zeros((600, 800, 3), dtype=np.uint8)
-
+    image = np.zeros((700, 900, 3), dtype=np.uint8)
+    
     # Calcular los valores de la función y trazarlos en la imagen
     
     nuevo_valor = random.randint(0,101)
@@ -63,7 +67,7 @@ while True:
     check_umbral(nuevo_valor,80)
 
     # Esperar por una tecla y salir si se presiona la tecla 'q'
-    key = cv2.waitKey(300)
+    key = cv2.waitKey(3)
     if key == ord('q'):
         break
 
