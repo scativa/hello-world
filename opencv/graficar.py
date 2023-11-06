@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import random
-<<<<<<< HEAD
 import pygame
 # import simpleaudio as sa
 
@@ -14,10 +13,6 @@ umbral = 0.9
 pygame.init()
 alert_sound = pygame.mixer.Sound("./opencv/sonido_err.wav")  # Reemplaza "alert.wav" con el nombre de tu archivo de sonido
 alert_ok = pygame.mixer.Sound("./opencv/sonido_ok.wav")  # Reemplaza "alert.wav" con el nombre de tu archivo de sonido
-
-=======
-# import matplotlib.pyplot as plt
->>>>>>> 7025130339cacaaf9f89d8dcfb429de475fc776a
 
 # Crear una ventana de OpenCV
 window_name = "Función en vivo"
