@@ -1,1 +1,0 @@
-print("Otro de python")
