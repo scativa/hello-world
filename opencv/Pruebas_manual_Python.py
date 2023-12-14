@@ -20,7 +20,7 @@ type ("Good night & Good luck")
 type ("true")
 print (type)
 
-result =10*3,0
+result =10*(3,0)
 print (result)
 
 
@@ -54,15 +54,15 @@ d= True *9
 print (d)
 
 #Cat Age
-a=1
-b=a+15
+e=int(input("Ingrese la edad de su gato: "))
+b=e+15
 c=b+9
 d=c+4
 
 print (d)
 
 #Dog Age
-a=1
+a=int(input("Ingrese la edad de su perro: "))
 b=[a,a+15]
 c=[b,b[1]+9]
 d=[c,c[1]+5]
@@ -202,20 +202,20 @@ if resultado is not None:
     print(f"{num1} {operando} {num2} = {resultado}")
 
 #Ejercicios Pág 127
-A
+
 def get_weekday(number):
     if 1 <= number <= 7:
         weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
         return weekdays[number - 1]
     else:
         return "Wrong, please enter a number between 1 and 7"
-B
+
 # Example usage:
 number_input = int(input("Enter a number between 1 and 7: "))
 result = get_weekday(number_input)
 print(result)
 
-C
+
 def make_negative(number):
     return -abs(number)
 
@@ -223,3 +223,136 @@ def make_negative(number):
 input_number = float(input("Enter a number: "))
 result = make_negative(input_number)
 print(f"The negative version of {input_number} is {result}")
+
+#American Floor
+def american_to_european_floor(american_floor):
+    if american_floor == 0:
+        return -1
+    elif american_floor >= 13:
+        return american_floor - 2  # Move down by two for floors above 13
+    else:
+        return american_floor - 1
+    
+# Example usage:
+american_floor = int(input("Enter the American floor number: "))
+european_floor = american_to_european_floor(american_floor)
+print(f"The European floor number is: {european_floor}")
+
+#Bucles
+
+# Importante dar un valor antes de empezar el bucle
+want_exit = "N"
+num_question = 0  # Inicializamos la variable num_question
+
+while want_exit == "N" and num_question < 4:
+    print("Hola, ¿qué tal?")
+    want_exit = input("¿Quiere salir? [S/N]")
+    num_question += 1
+print("¡Ciao!")
+
+#Break
+want_exit = "N"	
+num_questions = 0
+while want_exit == "N":
+    print("Hola qué tal")
+    want_exit = input("¿Quiere salir? [S/N]")
+    num_questions += 1
+    if num_questions == 4:
+        print("Máximo número de preguntas alcanzado")
+        break
+    else:
+        print("Usted ha decidido salir")
+        print("Ciao")
+
+        #continuar un bucle
+
+want_exit = "N"	
+valid_options = 0
+while want_exit == 	"N":
+    print("Hola qué tal")
+    want_exit = input("¿Quiere salir? [S/N]")
+    if want_exit not in 	"SN"	:
+        want_exit = "N"	
+        continue
+    valid_options += 1
+    print(f"{valid_options}respuestas válidas")
+    print("Ciao!")
+
+#Bucle infinito(Nota fuera de rango)
+
+while True:
+    mark = float(input("Introduzca nueva nota: "))
+    if not(0 <= mark <= 10):
+        print("Nota fuera de rango")
+        break
+    print(mark)
+
+    #Operador Morsa
+
+while True:
+    mark = float(input("Introduzca una nueva nota: "))
+    
+    if 0 <= mark <= 10:
+        print(f"La nota ingresada es: {mark}")
+    else:
+        print("Nota fuera de rango")
+        break
+
+#Ejercicio pág 134
+#Escribir los multiples de 5 menores al valor ingresado
+
+def multiples_of_5(limit):
+    multiples = [num for num in range(5, limit) if num % 5 == 0]
+    return multiples
+
+# Solicitar al usuario ingresar el límite
+limit = int(input("Ingrese un valor límite: "))
+
+# Obtener los múltiplos de 5 menores que el límite
+result = multiples_of_5(limit)
+
+# Mostrar los resultados
+print(f"Los múltiplos de 5 menores que {limit} son: {result}")
+
+#Sentencia For(datos Iterables)
+
+Word="Nomencaltura"
+for Letter in Word:
+    print("Nomenclatura")
+
+#Romper un bucle For
+
+Word="Friday"
+
+for Letter in Word:
+  if Letter =="i":
+    break
+  print(Letter)
+
+#Ejercicio cantidad de vocales
+
+Word="Supercalifragilisticoespialidoso"
+
+#definir una lista de vocales
+
+vocales= "aeiou"
+
+#iniciar el contador de vocales
+contador_vocales=0
+
+for letter in Word:
+ #verificar si la letra es una vocal
+ if letter in vocales:
+    contador_vocales +=1
+
+    print(contador_vocales)
+
+# Imprimir el total de vocales
+print(f"El total de vocales en '{Word}' es: {contador_vocales}")
+
+#Ejercicios Bucles Anidados
+
+for i in range(1, 10):
+    for j in range(1, 10):
+        result = i * j
+        print(f"{i} * {j} = {result}")
